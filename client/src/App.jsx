@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 import Dashboard from '../pages/Dashboard';
 import AddEntry from "../pages/AddEntry";
 import History from "../pages/History";
@@ -12,8 +12,10 @@ import Profile from "../pages/Profile";
 
 function App() {
   return (
+    <>
+    <ToastContainer position="top-right" />
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
       <Route element={<Layout />}>
@@ -24,6 +26,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Route>
     </Routes>
+    </>
   );
 }
 
