@@ -19,28 +19,36 @@ const AddEntry = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await axios.post(
-        "http://localhost:5000/api/entries",
-        formData
-      );
-      toast.success("Entry added successfully!");
+  const token = localStorage.getItem("token");
 
-      // Reset the form after success
-      setFormData({
-        date: "",
-        weight: "",
-        bloodPressure: "",
-        bloodSugar: "",
-        notes: "",
-      });
-    } catch (error) {
-      console.error(error);
-      toast.error(error.response?.data?.message || "Failed to add entry");
-    }
-  };
+  try {
+    const res = await axios.post(
+      "http://localhost:5000/api/entries",
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    toast.success("Entry added successfully!");
+
+    setFormData({
+      date: "",
+      weight: "",
+      bloodPressure: "",
+      bloodSugar: "",
+      notes: "",
+    });
+  } catch (error) {
+    console.error(error);
+    toast.error(error.response?.data?.message || "Failed to add entry");
+  }
+};
+
 
   return (
     <div className="max-w-2xl mx-auto bg-white p-8 shadow-lg rounded-md">

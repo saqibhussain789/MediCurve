@@ -8,7 +8,7 @@ import Layout from '../components/layout/Layout';
 import Dashboard from '../pages/Dashboard';
 import AddEntry from "../pages/AddEntry";
 import History from "../pages/History";
-import Stats from "../pages/Stats";
+import StatsSummary from '../components/stats/StatsSummary';
 import Profile from "../pages/Profile";
 import PrivateRoute from '../components/PrivateRoutes'
 
@@ -30,7 +30,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-entry" element={<AddEntry />} />
           <Route path="/history" element={<History />} />
-          <Route path="/stats" element={<Stats />} />
+          <Route path="/stats" element={<StatsSummary />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>

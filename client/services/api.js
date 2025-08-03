@@ -4,6 +4,9 @@ const API = axios.create({
   baseURL: "http://localhost:5000/api",
 });
 
+const token = localStorage.getItem("token");
+
+
 export const testAPI = () => API.get("/");
 export const signup = (data) => API.post("/auth/signup", data);
 export const login = (data) => API.post("/auth/login", data);
@@ -23,5 +26,15 @@ export const addEntry = (data, token) =>
       Authorization: `Bearer ${token}`,
     },
   });
+
+
+export const getStats = (token) =>
+  API.get("/stats", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+
 
 

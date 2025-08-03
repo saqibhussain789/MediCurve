@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Entry = require('../models/Entry');
 
-// POST /api/entries
-router.post('/entries', async (req, res) => {
+// ✅ POST /api/entries
+router.post('/', async (req, res) => {
   try {
     const { date, weight, bloodPressure, bloodSugar, notes } = req.body;
 
@@ -22,7 +22,7 @@ router.post('/entries', async (req, res) => {
   }
 });
 
-// GET /api/entries
+// ✅ GET /api/entries
 router.get("/", async (req, res) => {
   try {
     const entries = await Entry.find().sort({ createdAt: -1 });
@@ -32,6 +32,5 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Error fetching entries" });
   }
 });
-
 
 module.exports = router;

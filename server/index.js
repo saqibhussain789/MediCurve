@@ -11,8 +11,15 @@ app.use(express.json());
 
 const authRoutes = require("./routes/auth");
 const entryRoutes = require("./routes/entryRoutes"); 
+const statsRoutes = require("./routes/stats");
+app.use("/api/stats", statsRoutes);
+
+
 app.use("/api/auth", authRoutes);
 app.use("/api/entries", entryRoutes);
+
+
+
 connectDB();
 
 
