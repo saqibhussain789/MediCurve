@@ -36,5 +36,17 @@ export const getStats = (token) =>
   });
 
 
+export const getProfile = async (token) => {
+  const res = await axios.get('/api/profile', {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return res.data;
+};
 
+export const updateProfile = async (token, data) => {
+  const res = await axios.put('/api/profile', data, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return res.data;
+};
 

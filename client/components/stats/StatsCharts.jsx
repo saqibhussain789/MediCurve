@@ -13,6 +13,7 @@ import {
   Cell,
   Legend,
 } from "recharts";
+import { useNavigate } from "react-router-dom";
 
 const lineData = [
   { date: "Mon", weight: 67 },

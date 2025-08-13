@@ -54,8 +54,8 @@ const History = () => {
   const customStyles = {
     headCells: {
       style: {
-        backgroundColor: "#f0f4f8",
-        color: "#1f2937",
+        backgroundColor: "#006e94",
+        color: "#ffffff",
         fontWeight: "600",
         fontSize: "14px",
       },

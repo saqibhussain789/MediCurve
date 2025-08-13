@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 
 const AddEntry = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     date: "",
     weight: "",
@@ -48,6 +51,14 @@ const AddEntry = () => {
     toast.error(error.response?.data?.message || "Failed to add entry");
   }
 };
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/"); 
+  }
+}, [navigate]);
+
 
 
   return (

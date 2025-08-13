@@ -12,10 +12,19 @@ import {
   Bar,
   Legend,
 } from "recharts";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [entries, setEntries] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/"); // Redirect to login page if no token
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const fetchData = async () => {

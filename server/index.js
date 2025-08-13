@@ -9,9 +9,12 @@ app.use(cors());
 app.use(express.json());
 
 
+
 const authRoutes = require("./routes/auth");
 const entryRoutes = require("./routes/entryRoutes"); 
 const statsRoutes = require("./routes/stats");
+const profileRoutes = require('./routes/Profileroutes');
+app.use('/api/profile', profileRoutes);
 app.use("/api/stats", statsRoutes);
 
 

@@ -1,6 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Milestones = () => {
+
+
+  const navigate = useNavigate();
+  useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/"); 
+  }
+}, [navigate]);
+
   const milestones = [
     { title: "First Entry", date: "2024-01-15" },
     { title: "Lost 2 kg", date: "2024-03-22" },
